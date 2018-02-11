@@ -1,1 +1,3 @@
-# This is a practice Vigenère cipher cipher implementation.
+# PracticeVigenereCipher
+
+This is a practice Vigenère cipher cipher implementation.
