@@ -84,4 +84,7 @@ def key_cracker(ciphertext, key_length, first_word_length, content):
         print "Resulting plaintext: " + result_plaintext
     
   #print "LENGTH: " + str(len(content))
-main()
+  
+# UNCOMMENT TO RUN BASIC CRYPTO SUITE
+#main()
+
