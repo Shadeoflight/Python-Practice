@@ -21,6 +21,28 @@ def test_cases():
   except:
     print "Invalid file name!"
     return
+  
+  #
+  # Separate dictionary list by size
+  #
+  content_size_array = []
+  content_back_pos = len(content)-1
+  
+  for i in range(len(content[content_back_pos])):
+    content_size_array.append([])
+  
+  # Go through each dictionary element
+  for i in range(len(content)):
+    # Find 
+    for j in range(len(content[content_back_pos])):
+      if(len(content[i]) == j):
+        #print str(len(content[i]))
+        content_size_array[j].append(content[i])
+        break
+  #for k in range(len(content_size_array[1])):
+    #print content_size_array[1][k] + " "
+  
+  #
 
   # Print to file
   text_file_name = str(1) + "-" + "data-output.txt"
@@ -29,7 +51,7 @@ def test_cases():
   
   start = time.time()
   ciphertextA = "MSOKKJCOSXOEEKDTOSLGFWCMCHSUSGX"
-  key_cracker(ciphertextA, 2, 6, content)
+  key_cracker(ciphertextA, 2, 6, content_size_array)
   end = time.time()
   print "---------------------"
   print "Trial 1"
@@ -49,7 +71,7 @@ def test_cases():
 
   start = time.time()
   ciphertextB = "OOPCULNWFRCFQAQJGPNARMEYUODYOUNRGWORQEPVARCEPBBSCEQYEARAJUYGWWYACYWBPRNEJBMDTEAEYCCFJNENSGWAQRTSJTGXNRQRMDGFEEPHSJRGFCFMACCB"
-  key_cracker(ciphertextB, 3, 7, content)
+  key_cracker(ciphertextB, 3, 7, content_size_array)
   end = time.time()
   print "---------------------"
   print "Trial 2"
@@ -69,7 +91,7 @@ def test_cases():
 
   start = time.time()
   ciphertextC = "MTZHZEOQKASVBDOWMWMKMNYIIHVWPEXJA"
-  key_cracker(ciphertextC, 4, 10, content)
+  key_cracker(ciphertextC, 4, 10, content_size_array)
   end = time.time()
   print "---------------------"
   print "Trial 3"
@@ -89,7 +111,7 @@ def test_cases():
 
   start = time.time()
   ciphertextD = "HUETNMIXVTMQWZTQMMZUNZXNSSBLNSJVSJQDLKR"
-  key_cracker(ciphertextD, 5, 11, content)
+  key_cracker(ciphertextD, 5, 11, content_size_array)
   end = time.time()
   print "---------------------"
   print "Trial 4"
@@ -109,7 +131,7 @@ def test_cases():
 
   start = time.time()
   ciphertextE = "LDWMEKPOPSWNOAVBIDHIPCEWAETYRVOAUPSINOVDIEDHCDSELHCCPVHRPOHZUSERSFS"
-  key_cracker(ciphertextE, 6, 9, content)
+  key_cracker(ciphertextE, 6, 9, content_size_array)
   end = time.time()
   print "---------------------"
   print "Trial 5"

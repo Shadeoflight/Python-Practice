@@ -55,11 +55,33 @@ def main():
     print "Invalid file name!"
     return
   
+  #
+  # Separate dictionary list by size
+  #
+  content_size_array = []
+  content_back_pos = len(content)-1
+  
+  for i in range(len(content[content_back_pos])):
+    content_size_array.append([])
+  
+  # Go through each dictionary element
+  for i in range(len(content)):
+    # Find 
+    for j in range(len(content[content_back_pos])):
+      if(len(content[i]) == j):
+        #print str(len(content[i]))
+        content_size_array[j].append(content[i])
+        break
+  #for k in range(len(content_size_array[1])):
+    #print content_size_array[1][k] + " "
+  
+  #
+  
   ciphertext = raw_input('Enter ciphertext: ')
   key_length = raw_input('Enter key length: ') # TODO: EDIT
   first_word_length = raw_input('Enter first word length: ')
   
-  key_cracker(ciphertext, key_length, first_word_length, content)
+  key_cracker(ciphertext, key_length, first_word_length, content_size_array)
   
   
 def key_cracker(ciphertext, key_length, first_word_length, content):
@@ -81,9 +103,9 @@ def key_cracker(ciphertext, key_length, first_word_length, content):
     result_first_substring = result_plaintext[:int(first_word_length)] # Get first substring
     
     # Read from dictionary
-    for j in range(len(content)):
+    for j in range(len(content[first_word_length])):
       
-      if result_first_substring == content[j]:
+      if result_first_substring == content[first_word_length][j]:
         
         # Print to terminal
         
@@ -94,9 +116,9 @@ def key_cracker(ciphertext, key_length, first_word_length, content):
         #
         
         # Print to file
-        text_file.write("Resulting string: %s" % result_first_substring)
-        text_file.write("Resulting key: %s" % keywords[i])
-        text_file.write("Resulting plaintext: %s" % result_plaintext)
+        text_file.write("Resulting string: %s\n" % result_first_substring)
+        text_file.write("Resulting key: %s\n" % keywords[i])
+        text_file.write("Resulting plaintext: %s\n" % result_plaintext)
         #
         
         break
