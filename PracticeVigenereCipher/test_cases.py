@@ -22,6 +22,11 @@ def test_cases():
     print "Invalid file name!"
     return
 
+  # Print to file
+  text_file_name = str(1) + "-" + "data-output.txt"
+  text_file = open(text_file_name, "w")
+  #
+  
   start = time.time()
   ciphertextA = "MSOKKJCOSXOEEKDTOSLGFWCMCHSUSGX"
   key_cracker(ciphertextA, 2, 6, content)
@@ -31,6 +36,16 @@ def test_cases():
   print "---------------------"
   print(end - start)
   print "---------------------"
+  
+  # Print to file
+  text_file.write("Resulting data: %s" % str(end-start))
+  text_file.close()
+  #
+  
+  # Print to file
+  text_file_name = str(2) + "-" + "data-output.txt"
+  text_file = open(text_file_name, "w")
+  #
 
   start = time.time()
   ciphertextB = "OOPCULNWFRCFQAQJGPNARMEYUODYOUNRGWORQEPVARCEPBBSCEQYEARAJUYGWWYACYWBPRNEJBMDTEAEYCCFJNENSGWAQRTSJTGXNRQRMDGFEEPHSJRGFCFMACCB"
@@ -41,6 +56,16 @@ def test_cases():
   print "---------------------"
   print(end - start)
   print "---------------------"
+  
+  # Print to file
+  text_file.write("Resulting data: %s" % str(end-start))
+  text_file.close()
+  #
+  
+  # Print to file
+  text_file_name = str(3) + "-" + "data-output.txt"
+  text_file = open(text_file_name, "w")
+  #
 
   start = time.time()
   ciphertextC = "MTZHZEOQKASVBDOWMWMKMNYIIHVWPEXJA"
@@ -51,6 +76,16 @@ def test_cases():
   print "---------------------"
   print(end - start)
   print "---------------------"
+  
+  # Print to file
+  text_file.write("Resulting data: %s" % str(end-start))
+  text_file.close()
+  #
+  
+  # Print to file
+  text_file_name = str(4) + "-" + "data-output.txt"
+  text_file = open(text_file_name, "w")
+  #
 
   start = time.time()
   ciphertextD = "HUETNMIXVTMQWZTQMMZUNZXNSSBLNSJVSJQDLKR"
@@ -61,6 +96,16 @@ def test_cases():
   print "---------------------"
   print(end - start)
   print "---------------------"
+  
+  # Print to file
+  text_file.write("Resulting data: %s" % str(end-start))
+  text_file.close()
+  #
+  
+  # Print to file
+  text_file_name = str(5) + "-" + "data-output.txt"
+  text_file = open(text_file_name, "w")
+  #
 
   start = time.time()
   ciphertextE = "LDWMEKPOPSWNOAVBIDHIPCEWAETYRVOAUPSINOVDIEDHCDSELHCCPVHRPOHZUSERSFS"
@@ -71,6 +116,11 @@ def test_cases():
   print "---------------------"
   print(end - start)
   print "---------------------"
+  
+  # Print to file
+  text_file.write("Resulting data: %s" % str(end-start))
+  text_file.close()
+  #
   
 test_cases()
   

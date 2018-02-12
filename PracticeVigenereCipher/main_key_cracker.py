@@ -70,6 +70,11 @@ def key_cracker(ciphertext, key_length, first_word_length, content):
   alphabet_arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
   keywords = [''.join(i) for i in itertools.product(alphabet_arr, repeat = int(key_length))]
   
+  # Print to file
+  text_file_name = str(key_length) + "-" + str(first_word_length) + "output.txt"
+  text_file = open(text_file_name, "w")
+  #
+  
   for i in range(len(keywords)):
     result_plaintext = decrypt(ciphertext, keywords[i]);
     
@@ -79,11 +84,28 @@ def key_cracker(ciphertext, key_length, first_word_length, content):
     for j in range(len(content)):
       
       if result_first_substring == content[j]:
-        print "Resulting string: " + result_first_substring
-        print "Resulting key: " + keywords[i]
-        print "Resulting plaintext: " + result_plaintext
+        
+        # Print to terminal
+        
+        #print "Resulting string: " + result_first_substring
+        #print "Resulting key: " + keywords[i]
+        #print "Resulting plaintext: " + result_plaintext
+        
+        #
+        
+        # Print to file
+        text_file.write("Resulting string: %s" % result_first_substring)
+        text_file.write("Resulting key: %s" % keywords[i])
+        text_file.write("Resulting plaintext: %s" % result_plaintext)
+        #
+        
+        break
     
   #print "LENGTH: " + str(len(content))
+  
+  # Print to file
+  text_file.close()
+  #
   
 # UNCOMMENT TO RUN BASIC CRYPTO SUITE
 #main()
