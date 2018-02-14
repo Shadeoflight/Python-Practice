@@ -5,6 +5,8 @@ from vigenere_cipher import decrypt, encrypt
 import itertools
 from itertools import product
 
+import bisect
+
 def main():
   file_name = ""
   ciphertext = ""
@@ -83,7 +85,6 @@ def main():
   
   key_cracker(ciphertext, key_length, first_word_length, content_size_array)
   
-  
 def key_cracker(ciphertext, key_length, first_word_length, content):
   
   # Remove spaces from the string
@@ -102,10 +103,20 @@ def key_cracker(ciphertext, key_length, first_word_length, content):
     
     result_first_substring = result_plaintext[:int(first_word_length)] # Get first substring
     
+    # B-Tree
+    index = bisect.bisect(content[first_word_length], result_first_substring)-1
+
+    if content[first_word_length][index] == result_first_substring:
+      # Print to file
+      text_file.write("Resulting string: %s\n" % result_first_substring)
+      text_file.write("Resulting key: %s\n" % keywords[i])
+      text_file.write("Resulting plaintext: %s\n" % result_plaintext)
+    #
+    
     # Read from dictionary
-    for j in range(len(content[first_word_length])):
+    #for j in range(len(content[first_word_length])):
       
-      if result_first_substring == content[first_word_length][j]:
+      #if result_first_substring == content[first_word_length][j]:
         
         # Print to terminal
         
@@ -116,12 +127,12 @@ def key_cracker(ciphertext, key_length, first_word_length, content):
         #
         
         # Print to file
-        text_file.write("Resulting string: %s\n" % result_first_substring)
-        text_file.write("Resulting key: %s\n" % keywords[i])
-        text_file.write("Resulting plaintext: %s\n" % result_plaintext)
+        #text_file.write("Resulting string: %s\n" % result_first_substring)
+        #text_file.write("Resulting key: %s\n" % keywords[i])
+        #text_file.write("Resulting plaintext: %s\n" % result_plaintext)
         #
         
-        break
+        #break
     
   #print "LENGTH: " + str(len(content))
   
